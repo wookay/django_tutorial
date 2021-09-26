@@ -20,5 +20,9 @@ jobs:
         python3 -m pip install --upgrade pip
         cd mysite
         pip3 install -r requirements.txt
+    - name: migrate
+      run: |
         DJANGO_SETTINGS_MODULE=mysite.settings python3 manage.py migrate
+    - name: pytest
+      run: |
         DJANGO_SETTINGS_MODULE=mysite.settings python3 -m pytest
