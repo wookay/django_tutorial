@@ -1,3 +1,6 @@
+import sys
+sys.path.append('..')
+
 import pytest
 
 from polls.models import Choice, Question
