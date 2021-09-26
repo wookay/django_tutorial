@@ -7,7 +7,7 @@ from polls.models import Choice, Question
 from django.utils import timezone
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db(transaction=False, reset_sequences=False, databases=None)
 def test_one():
     # Make sure our __str__() addition worked.
     Question.objects.all()
