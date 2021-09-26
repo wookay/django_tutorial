@@ -1,5 +1,5 @@
-import sys
-sys.path.append('..')
+import django
+django.setup()
 
 import pytest
 
