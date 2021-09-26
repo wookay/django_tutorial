@@ -1,0 +1,24 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        cd mysite
+        pip3 install -r requirements.txt
+        DJANGO_SETTINGS_MODULE=mysite.settings python3 manage.py migrate
+        DJANGO_SETTINGS_MODULE=mysite.settings pytest
