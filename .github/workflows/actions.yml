@@ -7,7 +7,7 @@ env:
   PY_COLORS: 1
 
 jobs:
-  build:
+  Test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
