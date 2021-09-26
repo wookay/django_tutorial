@@ -2,6 +2,10 @@ name: CI
 
 on: [pull_request, push]
 
+env:
+  # https://github.com/tox-dev/tox/issues/1468
+  PY_COLORS: 1
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
