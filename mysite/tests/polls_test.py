@@ -7,10 +7,10 @@ from polls.models import Choice, Question
 from django.utils import timezone
 
 
-@pytest.mark.django_db(transaction=False, reset_sequences=False, databases=None)
+@pytest.mark.django_db
 def test_one():
     # Make sure our __str__() addition worked.
-    Question.objects.all()
+    questions = Question.objects.all()
 
     # Django provides a rich database lookup API that's entirely driven by
     # keyword arguments.
@@ -19,4 +19,5 @@ def test_one():
 
     # Get the question that was published this year.
     current_year = timezone.now().year
+    assert(current_year >= 2021)
     # Question.objects.get(pub_date__year=current_year)

@@ -31,4 +31,4 @@ jobs:
     - name: pytest
       run: |
         cd mysite/
-        DJANGO_SETTINGS_MODULE=mysite.settings python3 -m pytest
+        DJANGO_SETTINGS_MODULE=mysite.settings python3 -m pytest -s
